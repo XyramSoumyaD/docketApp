@@ -1,0 +1,29 @@
+p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+
+#root {
+  padding: 30px;
+}
+
+.register-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 1px;
+}
+
+#btn-submit{
+  float: right;
+  margin-top: 16px;
+}
+
+table, th, td {
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  margin-top: 15%;
+  width: 100%;
+}

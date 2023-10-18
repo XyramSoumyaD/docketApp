@@ -1,0 +1,79 @@
+
+<div class="register-form">   
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">   
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" formControlName="name" class="form-control" />   
+        </div>
+      </div>
+    </div>  
+    
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>Start Time</label>
+          <input type="text" formControlName="startTime" class="form-control"/>     
+        </div>        
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label>End Time</label>
+          <input type="text" formControlName="endTime" class="form-control"/>     
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>No. Of Hours Worked</label>
+          <input type="text" formControlName="NoOfHoursWorked" class="form-control"/>     
+        </div>
+      </div>
+      <div class="col">      
+        <div class="form-group">
+          <label>Rate Per Hour</label>
+          <input type="text" formControlName="ratePerHour" class="form-control"/>     
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label>Supplier Name</label>
+          <select class="form-control" formControlName="supplierName"  (change)="getPurchangeOrder($event)">
+            <option value="default"> Select </option>
+            <option *ngFor="let item of supplierData" value="{{item.pONumber}}">{{item.supplier}} </option>
+          </select>            
+        </div>
+      </div>
+      <div class="col">      
+        <div class="form-group">
+          <label>Purchase Order</label>
+          <select class="form-control" formControlName="purchaseOrder" >
+            <option value="default"> Select </option>
+            <option *ngFor="let item of poData" value="{{item.supplier}}">{{item.pONumber}} </option>
+          </select>            
+        </div>
+      </div>
+    </div>    
+    <div class="form-group" id="btn-submit">
+      <button type="submit" class="btn btn-primary">Submit</button>     
+    </div>
+    
+    <table *ngIf="submitted">
+      <th>Po Number</th>
+      <th>Description</th>
+      <tbody>
+        <tr *ngFor="let item of supplierData">
+            <td>{{item.pONumber}}</td>
+            <td>{{item.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
